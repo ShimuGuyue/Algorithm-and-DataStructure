@@ -13,5 +13,6 @@ features:
     link: ./数据结构/
   - title: 字符串
     details: KMP...
+    details: KMP，Manacher...
     link: ./字符串/
 ---
