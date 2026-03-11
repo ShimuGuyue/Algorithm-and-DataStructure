@@ -7,11 +7,11 @@ hero:
 features:
   - title: 数学
     details: 数论...
-    link: ./数学/
+    link: ./Math/
   - title: 数据结构
     details: ST表，并查集...
-    link: ./数据结构/
+    link: ./Structure/
   - title: 字符串
     details: 字符串哈希，KMP，Manacher...
-    link: ./字符串/
+    link: ./String/
 ---

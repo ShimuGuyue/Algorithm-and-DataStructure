@@ -7,8 +7,8 @@ hero:
 features:
   - title: ST表
     details: 可重复贡献的区间快速查询
-    link: ./ST表
+    link: ./SparseTable
   - title: 并查集
     details: 不相交集合的合并维护
-    link: ./并查集
+    link: ./Disjoint
 ---
