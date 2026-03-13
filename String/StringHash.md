@@ -101,7 +101,7 @@ uint64_t get_hash(int l, int r)
 class StringHash
 {
 private:
-    inline static bool is_init{ false 
+    inline static bool is_init{ false };
     // inline static int64_t maxlen_{ 1000000 };   //TODO：设置问题中字符串最大长度
     inline static constexpr int64_t base1_{ 5131111 };
     inline static constexpr int64_t base2_{ 50411513 };
