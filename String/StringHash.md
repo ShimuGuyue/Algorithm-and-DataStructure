@@ -101,20 +101,22 @@ uint64_t get_hash(int l, int r)
 class StringHash
 {
 private:
-    inline static bool is_init{ false };
-    inline static constexpr int64_t maxlen_{ 200000 };
+    inline static bool is_init{ false 
+    // inline static int64_t maxlen_{ 1000000 };   //TODO：设置问题中字符串最大长度
     inline static constexpr int64_t base1_{ 5131111 };
     inline static constexpr int64_t base2_{ 50411513 };
     inline static constexpr int64_t mod1_{ 999999937 };
     inline static constexpr int64_t mod2_{ 2000000011 };
-    inline static std::vector<int64_t> powers1_;
-    inline static std::vector<int64_t> powers2_;
+    inline static std::vector<int64_t> powers1_{ };
+    inline static std::vector<int64_t> powers2_{ };
 
 private:
-    std::vector<int64_t> prehashs1_;
-    std::vector<int64_t> prehashs2_;
+    std::vector<int64_t> prehashs1_{ };
+    std::vector<int64_t> prehashs2_{ };
 
 public:
+    StringHash() = default;
+
     StringHash(const std::string& s)
     {
         build(s);
@@ -130,6 +132,47 @@ public:
         int64_t hash1{ mod1(prehash1_r - mod1(prehash1_l * powers1_[r - l + 1])) };
         int64_t hash2{ mod2(prehash2_r - mod2(prehash2_l * powers2_[r - l + 1])) };
         return {hash1, hash2};
+    }
+
+    void build(const std::string& s)
+    {
+        if (!is_init)
+            init();
+        const int n{ static_cast<int>(s.length()) };
+        prehashs1_.assign(n, 0);
+        prehashs2_.assign(n, 0);
+        for (int i{ 0 }; i < n; ++i)
+        {
+            if (i)
+            {
+                prehashs1_[i] = mod1(prehashs1_[i - 1] * base1_);
+                prehashs2_[i] = mod2(prehashs2_[i - 1] * base2_);
+            }
+            prehashs1_[i] = mod1(prehashs1_[i] + turn(s[i]));
+            prehashs2_[i] = mod2(prehashs2_[i] + turn(s[i]));
+        }
+    }
+
+    void push_back(const std::string& s)
+    {
+        for (const char c : s)
+        {
+            push_back(c);
+        }
+    }
+
+    void push_back(const char c)
+    {
+        int i{ static_cast<int>(prehashs1_.size()) };
+        prehashs1_.emplace_back();
+        prehashs2_.emplace_back();
+        if (i)
+        {
+            prehashs1_[i] = mod1(prehashs1_[i - 1] * base1_);
+            prehashs2_[i] = mod2(prehashs2_[i - 1] * base2_);
+        }
+        prehashs1_[i] = mod1(prehashs1_[i] + turn(c));
+        prehashs2_[i] = mod2(prehashs2_[i] + turn(c));
     }
 
 public:
@@ -150,26 +193,6 @@ public:
             hash2 = mod2(hash2 + turn(s[i]));
         }
         return {hash1, hash2};
-    }
-
-private:
-    void build(const std::string& s)
-    {
-        if (!is_init)
-            init();
-        const int n{ static_cast<int>(s.length()) };
-        prehashs1_.resize(n);
-        prehashs2_.resize(n);
-        for (int i{ 0 }; i < n; ++i)
-        {
-            if (i)
-            {
-                prehashs1_[i] = mod1(prehashs1_[i - 1] * base1_);
-                prehashs2_[i] = mod2(prehashs2_[i - 1] * base2_);
-            }
-            prehashs1_[i] = mod1(prehashs1_[i] + turn(s[i]));
-            prehashs2_[i] = mod2(prehashs2_[i] + turn(s[i]));
-        }
     }
 
 private:
