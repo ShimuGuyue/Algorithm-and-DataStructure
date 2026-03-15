@@ -10,5 +10,5 @@ features:
     link: ./SparseTable
   - title: 并查集
     details: 不相交集合的合并维护
-    link: ./Disjoint
+    link: ./DisjointSet
 ---
