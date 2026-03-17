@@ -221,12 +221,18 @@ private:
 
     static int64_t mod1(const int64_t x)
     {
-        return (x % mod1_ + mod1_) % mod1_;
+        int64_t ans{ x % mod1_ };
+        if (ans < 0)
+            ans += mod1_;
+        return ans;
     }
 
     static int64_t mod2(const int64_t x)
     {
-        return (x % mod2_ + mod2_) % mod2_;
+        int64_t ans{ x % mod2_ };
+        if (ans < 0)
+            ans += mod2_;
+        return ans;
     }
 };
 ```
