@@ -1,6 +1,8 @@
 ---
 layout: home
 
+pageClass: List
+
 hero:
   name: 算法和数据结构
 
