@@ -229,11 +229,6 @@ public:
     }
 
 private:
-    void init()
-    {
-        tree.resize(1);
-    }
-
     int search(const std::string& s) const
     {
         int node{ 0 };
