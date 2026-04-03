@@ -13,4 +13,7 @@ features:
   - title: 并查集
     details: 不相交集合的合并维护
     link: ./DisjointSet
+  - title: 树状数组
+    details: 前缀信息修改和查询的快速维护
+    link: ./BinaryIndexedTree
 ---
