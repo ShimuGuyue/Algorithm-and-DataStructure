@@ -7,6 +7,9 @@ hero:
   name: 数据结构
 
 features:
+  - title: ..
+    details: 算法和数据结构/
+    link: ../
   - title: ST表
     details: 可重复贡献的区间快速查询
     link: ./SparseTable

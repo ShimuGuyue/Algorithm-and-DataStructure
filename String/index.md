@@ -7,6 +7,9 @@ hero:
   name: 字符串
 
 features:
+  - title: ..
+    details: 算法和数据结构/
+    link: ../
   - title: 字符串哈希
     details: 将字符串映射为整数以便快速比较
     link: ./StringHash
