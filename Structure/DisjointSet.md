@@ -186,13 +186,13 @@ private:
 
 初始时，各节点父节点为本身，权值应初始化为权值关系的**单位元**。
 
->   对于任意运算关系 $*$，若 $a * e = a$，则称 $e$ 为该运算关系的单位元。
+*以下内容以整数加减为例。*
 
 ## 路径压缩修正权值
 
 带权并查集使用路径压缩查询所属集合时，父节点信息发生改变，应通过权值运算，将路径上点的权值更新为相对于根节点的权值。
 
-更新到节点 $a$ 时，设其父节点为 $b$，$a$ 相对于 $b$ 的权值为 `dists[a]`；$b$ 的父节点为 $root$，$b$ 相对于 $root$ 的权值为更新后的 `dists[b]`。因此将 $a$ 挂载到 $root$ 节点下后，`dists[a]` 应更新为 `operate(dists[a], dists[b])`，其中 $operate$ 表示权值运算规则。
+更新到节点 $a$ 时，设其父节点为 $b$，$a$ 相对于 $b$ 的权值为 `dists[a]`；$b$ 的父节点为 $root$，$b$ 相对于 $root$ 的权值为更新后的 `dists[b]`。因此将 $a$ 挂载到 $root$ 节点下后，`dists[a]` 应更新为 `dists[a] + dists[b]`。
 
 ```cpp
 int find(int x)
@@ -202,9 +202,9 @@ int find(int x)
     // 路径压缩会导致找不到原父节点，需拷贝备份
     int father = fathers[x];
     fathers[x] = find(fathers[x]);
-    // operater规定运算规则
-    dists[x] = operate(dists[x], dists[father]);
-    return nodes_[x].father;
+    // 更新节点权值
+    dists[x] = dists[x] + dists[father]);
+    return fathers[x];
 }
 ```
 
@@ -222,11 +222,10 @@ bool merge(int x, int y, int dist)
     int set_x = find(x);
     int set_y = find(y);
     // 假设使用路径压缩
-    // inv_operate规定逆运算规则
     if (set_x == set_y)
-        return dist == inv_operate(dists[y], dists[x]);
+        return dist == dists[y] - dists[x];
     fathers[set_y] = set_x;
-    dists[set_y] = inv_operate(operate(dists[x], dist), dists[y]);
+    dists[set_y] = dists[x] + dist - dists[y];
     return true;
 }
 ```
@@ -246,7 +245,7 @@ pair<bool, int> query(int x, int y)
     int set_y = find(y);
     if (set_x != set_y)
         return {false, 0};
-    int dist = inv_operate(dists[y], dists[x]);
+    int dist = dists[y] - dists[x];
     return {true, dist};
 }
 ```
