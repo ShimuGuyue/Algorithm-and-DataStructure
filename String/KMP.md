@@ -1,3 +1,7 @@
+---
+tags: ["String", "字符串", "StringMatch", "字符串匹配", "KMP"]
+---
+
 # KMP
 
 ## border

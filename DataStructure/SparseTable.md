@@ -1,3 +1,7 @@
+---
+tags: ["DataStructure", "数据结构", "BinaryLifting", "倍增", "SparseTable", "ST表"]
+---
+
 # ST 表
 
 ST表是用于解决**可重复贡献**（最大最小值、最大公因数等）问题的**区间总贡献**查询的数据结构。
