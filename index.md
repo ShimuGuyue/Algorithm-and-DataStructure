@@ -6,7 +6,7 @@
 
 ---
 
-知识图谱概览：
+#### 知识图谱：
 
 <!-- 树形图中空格为中文全角字符 -->
 
@@ -30,3 +30,12 @@
 　　　└──[Trie](./String/Trie) (字典树)
 
 注：本项目持续更新中，若发现逻辑漏洞或有更好的实现方式，欢迎[随时修订](https://github.com/ShimuGuyue/Algorithm-and-DataStructure/issues)。
+
+---
+
+#### 竞赛题解
+
++   CCCC-GPLT（中国高校计算机大赛-团体程序设计天梯赛）
+
+    [GPLT2026](./CompetitionSolutions/CCCC-GPLT2026)
+
