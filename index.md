@@ -6,7 +6,7 @@
 
 ---
 
-#### 知识图谱：
+#### 知识图谱
 
 <!-- 树形图中空格为中文全角字符 -->
 
@@ -16,7 +16,7 @@
 │　　├──[DisjointSet](./DataStructure/DisjointSet/DisjointSet) (并查集)
 │　　│　　├──[EnlargedDisjointSet](./DataStructure/DisjointSet/EnlargedDisjointSet) (拓展域并查集)
 │　　│　　└──[WeightedDisjointSet](./DataStructure/DisjointSet/WeightedDisjointSet) (带权并查集)
-│　　└──[SparseTable](./DataStructure/SparseTable) (ST表)
+│　　└──[Heap](DataStructure/Heap) (堆)
 ├──Graph (图论)
 │　　└──BipartiteGraph (二分图)
 │　　　　　└──[BipartiteStaining](./Graph/BipartiteGraph/BipartiteStaining) (二分图染色)
