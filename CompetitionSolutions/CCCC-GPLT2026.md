@@ -504,7 +504,7 @@ $80$ 岁以上老人有特别优先权，因此按年龄大小维护两个等待
 +   若有没到预约时间的患者在等待，选择到达时间最早的患者，优先查看老人集合。
 
 ```cpp
-void solve()
+struct Data
 {
     int time1;
     int time2;
@@ -517,7 +517,7 @@ void solve()
     }
 };
 
-int main()
+void solve()
 {
     int n;
     std::cin >> n;
