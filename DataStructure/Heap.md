@@ -131,7 +131,7 @@ private:
 public:
     void push(const int data)
     {
-        const int node = heap_.size();
+        const int node{ static_ca(heap_.size()) };
         heap_.push_back(data);
         slip_up(node);
     }
