@@ -28,7 +28,8 @@
 　　　├──[KMP](./String/KMP) (KMP)
 　　　├──[Manacher](./String/Manacher) (Manacher)
 　　　├──[StringHash](./String/StringHash) (字符串哈希)
-　　　└──[Trie](./String/Trie) (字典树 | 前缀树)
+　　　├──[Trie](./String/Trie) (字典树 | 前缀树)
+　　　└──[ZFunction](./String/ZFunction) (Z函数)
 
 注：本项目持续更新中，若发现逻辑漏洞或有更好的实现方式，欢迎[随时修订](https://github.com/ShimuGuyue/Algorithm-and-DataStructure/issues)。
 
